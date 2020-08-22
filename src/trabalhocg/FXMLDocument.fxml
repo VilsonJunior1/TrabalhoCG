@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhocg.FXMLDocumentController">
+   <top>
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="arquivo" mnemonicParsing="false" text="Arquivo">
+            <items>
+                  <MenuItem fx:id="novo" mnemonicParsing="false" onAction="#actionNovo" text="Novo" />
+              <MenuItem fx:id="abrir" mnemonicParsing="false" onAction="#actionAbrir" text="Abrir" />
+                  <MenuItem fx:id="salvar" mnemonicParsing="false" onAction="#actionSalvar" text="Salvar" />
+            </items>
+          </Menu>
+          <Menu fx:id="ajuda" mnemonicParsing="false" text="Ajuda">
+            <items>
+                  <MenuItem fx:id="manual" mnemonicParsing="false" onAction="#actionManual" text="Manual" />
+              <MenuItem fx:id="sobre" mnemonicParsing="false" onAction="#actionSobre" text="Sobre" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="560.0" prefWidth="70.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="35.0" prefWidth="97.0">
+               <children> 
+                  <Button fx:id="ButtonSelection" mnemonicParsing="false" onAction="#actionButtonSelecao" prefHeight="35.0" prefWidth="35.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="ButtonExclusion" mnemonicParsing="false" onAction="#actionButtonExclusao" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="164.0">
+               <children>
+                  <Button fx:id="ButtonTriangulo" mnemonicParsing="false" onAction="#actionButtonTriangulo" prefHeight="35.0" prefWidth="35.0" />
+                  <Button fx:id="ButtonRetangulo" mnemonicParsing="false" onAction="#actionButtonRetangulo" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="164.0">
+               <children>
+                  <Button fx:id="ButtonPentagono" mnemonicParsing="false" onAction="#actionButtonPentagono" prefHeight="35.0" prefWidth="35.0" />
+                  <Button fx:id="ButtonHexagono" mnemonicParsing="false" onAction="#actionButtonHexagono" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="164.0">
+               <children>
+                  <Button fx:id="ButtonPoligono" mnemonicParsing="false" onAction="#actionButtonPoligonoRegular" prefHeight="35.0" prefWidth="35.0" />
+                  <Button fx:id="ButtonIrregular" mnemonicParsing="false" onAction="#actionButtonIrregular" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="164.0">
+               <children>
+                  <Button fx:id="ButtonRotaciona" mnemonicParsing="false" onAction="#actionButtonRotaciona" prefHeight="35.0" prefWidth="35.0" />
+                  <Button fx:id="ButtonCisalhamento" mnemonicParsing="false" onAction="#actionCisalhamento" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="120.0">
+               <children>
+                  <Button fx:id="ButtonTranslada" mnemonicParsing="false" onAction="#actionButtonTranslada" prefHeight="35.0" prefWidth="35.0" />
+                  <Button fx:id="ButtonEscala" mnemonicParsing="false" onAction="#actionButtonEscala" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="120.0">
+               <children>
+                  <Button fx:id="ButtonExtrusao" mnemonicParsing="false" onAction="#actionButtonExtrusao" prefHeight="35.0" prefWidth="35.0" />
+                  <Button fx:id="ButtonRevolucao" mnemonicParsing="false" onAction="#actionButtonRevolucao" prefHeight="35.0" prefWidth="35.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="255.0" prefHeight="22.0" prefWidth="72.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wireframe" wrappingWidth="52.083984375">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="9.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="309.0" prefHeight="35.0" prefWidth="120.0">
+               <children>
+                  <ChoiceBox fx:id="Wireframe" prefHeight="25.0" prefWidth="70.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="72.0">
+               <children>
+                  <Text fx:id="textOcultacaoFaces" strokeType="OUTSIDE" strokeWidth="0.0" text="Ocultação de Faces" wrappingWidth="52.083984375">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="9.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="120.0">
+               <children>
+                  <ChoiceBox fx:id="OcultacaoFaces" prefHeight="25.0" prefWidth="70.0" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <StackPane>
+         <children>
+            <GridPane fx:id="gridPane" gridLinesVisible="true">
+               <columnConstraints>
+                  <ColumnConstraints fx:id="monitorWidth" hgrow="SOMETIMES" minWidth="10.0" prefWidth="362.0" />
+                  <ColumnConstraints fx:id="monitorWidth2" hgrow="SOMETIMES" minWidth="10.0" prefWidth="362.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints fx:id="monitorHeight" minHeight="10.0" prefHeight="267.5" vgrow="SOMETIMES" />
+                  <RowConstraints fx:id="monitorHeight2" minHeight="10.0" prefHeight="267.5" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Canvas fx:id="monitor2" height="267.5" onMousePressed="#actionTela2" width="362.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+                  <Canvas fx:id="monitor" height="267.5" onMousePressed="#actionTela1" width="362.0" BorderPane.alignment="CENTER" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+                  <Canvas fx:id="monitor3" height="267.5" onMousePressed="#actionTela3" width="362.0" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                  <Canvas fx:id="monitor4" height="267.5" onMousePressed="#actionTela4" width="362.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+               </children>
+            </GridPane>
+            <Button fx:id="maximizar1" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" onAction="#actionMaximizar1" prefHeight="15.0" prefWidth="15.0" />
+            <Button fx:id="maximizar2" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" onAction="#actionMaximizar2" prefHeight="15.0" prefWidth="15.0" />
+            <Button fx:id="maximizar3" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" onAction="#actionMaximizar3" prefHeight="15.0" prefWidth="15.0" />
+            <Button fx:id="maximizar4" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" onAction="#actionMaximizar4" prefHeight="15.0" prefWidth="15.0" />
+            <Text fx:id="eixoXY" strokeType="OUTSIDE" strokeWidth="0.0" text="Frente (XY) " />
+            <Text fx:id="eixoXZ" strokeType="OUTSIDE" strokeWidth="0.0" text="Topo (XZ) " />
+            <Text fx:id="eixoYZ" strokeType="OUTSIDE" strokeWidth="0.0" text="Lateral (YZ) " />
+            <Text fx:id="visualiza" strokeType="OUTSIDE" strokeWidth="0.0" text="Perspectiva " />
+            <Button fx:id="minimizar" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" onAction="#actionMinimizar" prefHeight="15.0" prefWidth="15.0" />
+         </children>
+      </StackPane>
+   </center>
+   <bottom>
+      <HBox prefHeight="30.0" prefWidth="786.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="26.0" prefWidth="236.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pontos N lados" wrappingWidth="81.162109375">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="2.0" top="3.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Slider fx:id="ButtonSlider" blockIncrement="1.0" max="20.0" min="3.0" prefHeight="29.0" prefWidth="115.0" value="12.0" />
+                  <Label fx:id="ValorSlider" prefHeight="29.0" prefWidth="45.0" text="0" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="3.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Futura Md BT Medium Italic" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="140.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonFLuminosas" mnemonicParsing="false" onAction="#actionFLuminosas" prefHeight="14.0" prefWidth="130.0" text="Fontes Luminosas" textAlignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <HBox prefHeight="0.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKar" strokeType="OUTSIDE" strokeWidth="0.0" text="KaR:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKar" prefHeight="26.0" prefWidth="70.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKag" strokeType="OUTSIDE" strokeWidth="0.0" text="KaG:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKag" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKab" strokeType="OUTSIDE" strokeWidth="0.0" text="KaB:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKab" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKsr" strokeType="OUTSIDE" strokeWidth="0.0" text="KsR:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKsr" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKsg" strokeType="OUTSIDE" strokeWidth="0.0" text="KsG:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKsg" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKsb" strokeType="OUTSIDE" strokeWidth="0.0" text="KsB:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKsb" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKdr" strokeType="OUTSIDE" strokeWidth="0.0" text="KdR:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKdr" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKdg" strokeType="OUTSIDE" strokeWidth="0.0" text="KdG:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKdg" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textKdb" strokeType="OUTSIDE" strokeWidth="0.0" text="KdB:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonKdb" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="18.0" prefWidth="140.0">
+               <children>
+                  <Text fx:id="textN" strokeType="OUTSIDE" strokeWidth="0.0" text="N:" textAlignment="CENTER" wrappingWidth="58.13671875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Spinner fx:id="buttonN" prefHeight="26.0" prefWidth="69.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="buttonSalvarPol" mnemonicParsing="false" onAction="#actionSalvarPol" prefHeight="26.0" prefWidth="98.0" text="Salvar">
+               <VBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
